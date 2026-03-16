@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Frases para ti</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .card {
+      width: 350px;
+      height: 180px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      font-size: 19px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      background: #555;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card" id="frase"></div>
+
+    <div class="buttons">
+      <button onclick="anterior()">⬅ Anterior</button>
+      <button onclick="siguiente()">Siguiente ➡</button>
+    </div>
+
+  </div>
+
+  <script>
+
+    const frases = [
+      "Tu sonrisa tiene algo que la hace especial.",
+      "Tienes una sonrisa que se recuerda fácilmente.",
+      "Tienes un estilo que destaca con naturalidad.",
+      "Siempre es interesante saber lo que piensas.",
+      "Tu presencia tiene un encanto muy particular.",
+      "Tus comentarios siempre hacen la conversación más agradable.",
+      "Tu sonrisa tiene un encanto muy natural.",
+    ];
+
+    let index = 0;
+    const frase = document.getElementById("frase");
+
+    function mostrarFrase() {
+      frase.textContent = frases[index];
+    }
+
+    function siguiente() {
+      index = (index + 1) % frases.length;
+      mostrarFrase();
+    }
+
+    function anterior() {
+      index = (index - 1 + frases.length) % frases.length;
+      mostrarFrase();
+    }
+
+    mostrarFrase();
+
+  </script>
+
+</body>
+
+</html>
